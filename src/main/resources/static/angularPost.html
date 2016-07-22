@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Angular Post</title>
+    <style>
+        table, th , td {
+          border: 1px solid grey;
+          border-collapse: collapse;
+          padding: 5px;
+        }
+        table tr:nth-child(odd) {
+          background-color: #f1f1f1;
+        }
+        table tr:nth-child(even) {
+          background-color: #ffffff;
+        }
+    </style>
+    <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.4.8/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+    <script src="/module/angularPostApp.js"></script>
+    <script src="/controller/angularControllerApp.js"></script>
+</head>
+<body>
+<div ng-app="angularPostApp" ng-controller="angularControllerApp">
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Value</th>
+                <th>Consumed</th>
+            </tr>
+            <tr ng-repeat="x in names">
+                <td>{{ x.name }}</td>
+                <td>{{ x.value }}</td>
+                <td><button type="button" ng-click="consumed($index)"><strong>Consumed</strong></button></td>
+            </tr>
+        </table>
+
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Value</th>
+                <th>Remove</th>
+            </tr>
+            <tr ng-repeat="x in consumedName">
+                <td>{{ x.name }}</td>
+                <td>{{ x.value }}</td>
+                <td><button type="button" ng-click="removed($index)"><strong>Remove</strong></button></td>
+            </tr>
+        </table>
+
+        <label>This button should post</label>
+        <button type="button" ng-click="submit()">Submit</button>
+        </form>
+    </div>
+</body>
+</html>
